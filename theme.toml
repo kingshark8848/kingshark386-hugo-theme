@@ -1,12 +1,10 @@
 name = "kingshark386"
 license = "MIT"
 
-## todo
-licenselink = "git/LICENSE.md"
+licenselink = "https://github.com/kingshark8848/kingshark386-hugo-theme/blob/master/LICENSE.md"
 description = "kingshark386 -- a 386/8bit/pixel style theme for Hugo."
 
-## todo
-homepage = "git"
+homepage = "https://github.com/kingshark8848/kingshark386-hugo-theme"
 tags = ["hugo", "theme", "386", "pixel", "dark"]
 features = ["blog","profile"]
 min_version = 0.1
