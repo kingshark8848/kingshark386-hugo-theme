@@ -1,0 +1,478 @@
+// @import "lib/bourbon/app/assets/stylesheets/bourbon";
+
+.kingshark-timeline {
+    // layout - breakpoints
+    $exp-S:     320px;   
+    $exp-M:     768px;     
+    $exp-L:     1170px;   
+
+  /* -------------------------------- 
+  local var and mixin
+  -------------------------------- */
+  // variables - colors
+  $exp-color-pole: $bg1; // body background color
+ 
+
+  $exp-color-movie: $redDark; // red
+  $exp-color-pole: $exp-color-pole; // white
+  $exp-color-imge: $greenDark; // green
+
+  $exp-work-box-bg: $bg1;
+  $exp-work-icon-bg: lighten($bg1,10%);
+
+  $exp-edu-box-bg: $body-bg;
+  $exp-edu-icon-bg: lighten($body-bg,10%);
+
+  // variables - fonts 
+
+  $exp-primary-font: 'Droid Serif', serif;
+  $exp-secondary-font: 'Open Sans', sans-serif;
+
+  // vertical pole width
+  $exp-pole-width: 1rem;
+
+  // mixins - rem fallback - credits: http://zerosixthree.se/
+
+  @function exp-calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+  }
+
+  @mixin exp-font-size($size) {
+    font-size: $size;
+    font-size: exp-calculateRem($size);
+  }
+
+  // mixins - border radius
+  @mixin exp-border-radius($radius:.25rem) {
+    border-radius: $radius;
+  }  
+
+  // layout - media queries
+  @mixin exp-MQ($canvas) {
+    @if $canvas == S {
+    @media only screen and (min-width: $exp-S) { @content; } 
+    }
+    @else if $canvas == M {
+    @media only screen and (min-width: $exp-M) { @content; } 
+    }
+    @else if $canvas == L {
+    @media only screen and (min-width: $exp-L) { @content; } 
+    }
+  }
+
+  /* -------------------------------- 
+  Main components 
+  -------------------------------- */
+  position: relative;
+  padding: 2rem 0;
+  margin: {
+    top: 2rem;
+    bottom: 2rem;
+  }
+
+  &::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    height: 100%;
+    width: $exp-pole-width;
+    background: darken($exp-color-pole, 5%);
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @include exp-MQ(L) {
+    margin: {
+      top: 3rem;
+      bottom: 3rem;
+    }
+
+    &::before {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
+
+  // timeline-block
+  .cd-timeline-block {
+    position: relative;
+    margin: 2rem 0;
+    @include clearfix;
+  
+    &:first-child {
+      margin-top: 0;
+    }
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // image
+    .cd-timeline-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px $exp-color-pole, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
+      line-height: 40px;
+      text-align: center;
+
+      .exp-logo{
+        font-size: 2rem;
+      }
+    
+      img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        margin-left: -12px;
+        margin-top: -12px;
+      }
+    
+      // &.cd-picture {
+      //   background: $exp-color-imge;
+      // }
+    
+      // &.cd-movie {
+      //   background: $exp-color-movie;
+      // }
+    
+      background: $exp-work-icon-bg;
+    
+      @include exp-MQ(L) {
+        width: 60px;
+        height: 60px;
+        left: 50%;
+        margin-left: -24px;
+
+        .exp-logo{
+          top: 15%;
+          position: relative;
+        }
+    
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
+    }
+
+    // content
+    .cd-timeline-content {
+      position: relative;
+      margin-left: 60px;
+      background: $exp-work-box-bg;
+      color: $white;
+      // @include exp-border-radius;
+      padding: 1rem;
+      box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
+      @include clearfix;
+
+      .cd-exp-date{
+        font-weight: bolder;
+        color: $black;
+        // font-style: italic;
+      }
+      
+      .cd-exp-location{
+        color: $yellowDark;
+      }
+    
+      .cd-date {
+        display: inline-block;
+        font-weight: bolder;
+      }
+    
+      p {
+        margin: 1rem 0;
+        line-height: 1.6;
+      }
+    
+      .cd-date {
+        font-weight: bolder;
+      }
+    
+      @include exp-MQ(L) {
+        margin-left: 0;
+        padding: 1.6rem;
+        width: 45%;
+    
+        .cd-date {
+          position: absolute;
+          width: 100%;
+          left: 122%;
+          top: 6px;
+        }
+      }
+    }
+
+    // for edu box
+    &.cd-exp-type-edu{
+      .cd-timeline-img{
+        background: $exp-edu-icon-bg;
+      }
+
+      .cd-timeline-content{
+        background: $exp-edu-box-bg;
+
+        .cd-exp-date{
+          color: $gray;
+        }
+
+      }
+    }
+
+    // diffrent child block's style (even/odd)
+    @include exp-MQ(L) {
+      margin: 4rem 0;
+      
+      // even content at right
+      &:nth-child(even) .cd-timeline-content{
+        float: right;
+  
+        .cd-date {
+          left: auto;
+          right: 122%;
+          text-align: right;
+        }
+      }
+  
+    }
+  }
+
+  // css animation style
+  &.cssanimations{
+    @include exp-MQ(L){
+      .cd-timeline-block{
+
+        // image
+        .cd-timeline-img{
+          
+          &.is-hidden {
+            visibility: hidden;
+          }
+    
+          &.bounce-in {
+            visibility: visible;
+            @include animation(cd-bounce-1 .6s);
+          }
+        }
+  
+        // content
+        .cd-timeline-content {
+  
+          &.is-hidden {
+            visibility: hidden;
+          }
+  
+          &.bounce-in {
+            visibility: visible;
+            @include animation(cd-bounce-2 .6s);
+          }
+  
+        }
+
+        // even block's content
+        &:nth-child(even) .cd-timeline-content.bounce-in {
+          @include animation(cd-bounce-2-inverse .6s);
+        }
+
+      }
+
+    }
+  }
+
+
+  /* -------------------------------- 
+  Bounce Keyframes
+  -------------------------------- */
+  // keyframe cd-bounce-1
+  @-webkit-keyframes cd-bounce-1 {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(0.5);
+    }
+
+    60% {
+      opacity: 1;
+      -webkit-transform: scale(1.2);
+    }
+
+    100% {
+      -webkit-transform: scale(1);
+    }
+  }
+  @-moz-keyframes cd-bounce-1 {
+    0% {
+      opacity: 0;
+      -moz-transform: scale(0.5);
+    }
+
+    60% {
+      opacity: 1;
+      -moz-transform: scale(1.2);
+    }
+
+    100% {
+      -moz-transform: scale(1);
+    }
+  }
+  @keyframes cd-bounce-1 {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(0.5);
+      -moz-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+      -o-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+
+    60% {
+      opacity: 1;
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+
+    100% {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  // \ keyframe cd-bounce-1
+
+
+  // keyframe cd-bounce-2
+  @-webkit-keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+      }
+    }
+    
+    @-moz-keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -moz-transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -moz-transform: translateX(20px);
+      }
+      100% {
+        -moz-transform: translateX(0);
+      }
+    }
+    
+    @keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        -o-transform: translateX(-100px);
+        transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        -o-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+  // \ keyframe cd-bounce-2
+
+  // keyframe cd-bounce-2-inverse
+  @-webkit-keyframes cd-bounce-2-inverse {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(100px);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(-20px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+    }
+  }
+  
+  @-moz-keyframes cd-bounce-2-inverse {
+    0% {
+      opacity: 0;
+      -moz-transform: translateX(100px);
+    }
+    60% {
+      opacity: 1;
+      -moz-transform: translateX(-20px);
+    }
+    100% {
+      -moz-transform: translateX(0);
+    }
+  }
+  
+  @keyframes cd-bounce-2-inverse {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(100px);
+      -moz-transform: translateX(100px);
+      -ms-transform: translateX(100px);
+      -o-transform: translateX(100px);
+      transform: translateX(100px);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translateX(-20px);
+      -moz-transform: translateX(-20px);
+      -ms-transform: translateX(-20px);
+      -o-transform: translateX(-20px);
+      transform: translateX(-20px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+  // \ keyframe cd-bounce-2-inverse
+
+  // h1, h2... responsive in small device
+  @media only screen and (max-width: $exp-M) {
+    .cd-position,.cd-company{
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+
+}
+

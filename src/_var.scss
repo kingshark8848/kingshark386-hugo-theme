@@ -1,0 +1,13 @@
+@import "lib/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+// @import "lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// media
+$screen-small: 480px;
+$screen-medium: 700px;
+$screen-large: 920px;
+
+// font
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$header-menu-height: 3rem;
+$footer-height: 5rem;

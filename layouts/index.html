@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <title> {{ .Site.Title }} </title>
+
+  {{ with .Site.Params.Keywords }}<meta name="keywords" content="{{.}}">{{ end }}
+  {{ with .Site.Params.Description }}<meta name="description" content="{{.}}">{{ end }}
+
+  {{ partial "head.html" . }}
+
+</head>
+
+<body class="page-index">
+  <section id="top"></section>
+
+  {{ partial "header.html" . }}
+
+  <!-- side index nav -->
+  <section class="home-nav">
+    <ul id="home-nav-menu">
+      {{ range .Site.Data.profile.ProfileSections }}
+      <li><a href="#{{.}}">{{.}}</a>
+      {{ end }}
+    </ul>
+  </section>
+
+  <div class="container">
+    <section class="site-intro">
+      <p><span class="command-line-symbol"><span class="command-line-prefix">{{.Site.Data.profile.UserName}}</span> ~$</span>{{.Site.Params.Intro}}<span class="blink-fast">∎</span></p>
+    </section>
+
+    <section id="user-profile" class="user-profile my-card" >
+      <div class="row">
+        <div class="col left">
+          profile
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+
+          <figure class="user-avatar">
+            <img alt="avatar" src="{{ .Site.Data.profile.Avatar }}">
+            <figcaption class="user-socials">
+              {{ with .Site.Data.profile.TwitterID }}
+              <a href="https://twitter.com/{{.}}" title="Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+              {{ end }}
+              {{ with .Site.Data.profile.GoogleplusID }}
+              <a href="https://plus.google.com/{{.}}/about" title="Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
+              {{ end }}
+              {{ with .Site.Data.profile.FacebookID }}
+              <a href="https://facebook.com/{{.}}" title="Facebook"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+              {{ end }}
+              {{ with .Site.Data.profile.GithubID }}
+              <a href="https://github.com/{{.}}" title="GitHub"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+              {{ end }}
+              {{ with .Site.Data.profile.LinkedInID }}
+              <a href="http://linkedin.com/in/{{.}}" title="LinkedIn"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+              {{ end }}
+        
+              </figcaption>
+            </figure>
+            <p class="user-motivation">{{ .Site.Data.profile.Intro }} </p>
+            <p>
+              My Career Interests: 
+              {{ range .Site.Data.profile.CareerInterests }}
+              <span class="label label-default label-career"><i class="fa fa-briefcase" aria-hidden="true"></i> {{.}}</span>
+              {{end}}   
+            </p>
+            <p>
+              My Hobbies & Likes: 
+              {{ range .Site.Data.profile.HobbysAndLikes }}
+              <span class="label label-default label-hobby">{{.}}</span>
+              {{end}}   
+            </p>       
+        </div>
+      </div>    
+    </section>
+
+    <section id="skills" class="skills my-card">
+      <div class="row">
+        <div class="col left">
+          skills
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          {{ partial "skillbar.html" . }}
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="my-card">
+      <div class="row">
+        <div class="col left">
+          experience
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          {{ partial "experience.html" . }}
+        </div>
+      </div>
+
+    </section>
+ </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "analytics.html" . }}
+
+  <script>
+    // var data = {{ .Site.Data.test }};
+    // console.log(data);
+
+    // Cache selectors
+    var lastId,
+        windowHeight = $(window).height(),
+        homeNav = $("#home-nav-menu"),
+        topMenu = $("#top-menu"),
+        topMenuHeight = topMenu.outerHeight()+15,
+        // All list items
+        menuItems = homeNav.find("a"),
+        // Anchors corresponding to menu items
+        scrollItems = menuItems.map(function(){
+          var item = $($(this).attr("href"));
+          if (item.length) { return item; }
+        });
+    
+    // init setup active section of side nav
+    checkActiveSection();
+
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function(e){
+      var href = $(this).attr("href"),
+          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      
+      id = $(href)[0].id;
+      
+      $('html, body').stop().animate({ 
+        scrollTop: offsetTop
+      }, 500, 
+      // complete callback
+      function(){
+        setMenuActive(id);
+      });
+      e.preventDefault();
+    });
+
+    // Bind to scroll
+    $(window).scroll(function(){
+      checkActiveSection();                  
+    });
+
+    function setMenuActive(id){
+      menuItems
+            .parent().removeClass("active")
+            .end().filter("[href='#"+id+"']").parent().addClass("active");
+    }
+
+    function checkActiveSection(){
+
+      // Get container scroll position
+      var fromTop = $(window).scrollTop()+topMenuHeight+15; // kingshark can adjust
+      
+      // Get id of current scroll item
+      // first item whose offset > scroll top
+      var activeSection = null;
+      for (i=0; i<scrollItems.length; i++){
+        if (scrollItems[i].offset().top > fromTop){
+          activeSection = i===0 || Math.abs(scrollItems[i].offset().top-fromTop)<Math.abs(scrollItems[i-1].offset().top-fromTop) 
+          ? scrollItems[i] : scrollItems[i-1];
+          break;
+        }
+
+        // no item satisfy the condition, then choose last item
+        if (i==scrollItems.length-1){
+          activeSection = scrollItems[i];
+        }
+
+      }
+      var id = activeSection[0].id;
+      setMenuActive(id);
+    }
+
+  </script>
+
+</body>
+</html>

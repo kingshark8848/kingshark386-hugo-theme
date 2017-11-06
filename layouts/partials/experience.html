@@ -1,0 +1,101 @@
+<div class="kingshark-experience">
+    <section class="kingshark-timeline cd-container cssanimations">
+        {{ range $index, $exp := .Site.Data.profile.Experience }}
+        <div class="cd-timeline-block cd-exp-type-{{$exp.type}}">
+            <div class="cd-timeline-img">
+                <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture"> -->
+                {{ if eq $exp.type "work" }}
+                <i class="fa fa-calendar fa-lg exp-logo" aria-hidden="true"></i>
+                {{ else if eq $exp.type "edu" }}
+                <i class="fa fa-graduation-cap fa-lg exp-logo" aria-hidden="true"></i>
+                {{ end }}
+            </div> <!-- cd-timeline-img -->
+    
+            <div class="cd-timeline-content">
+                <h4 class="cd-exp-date text-info">{{ $exp.startDate }} TO {{ $exp.endDate }}</h>
+                {{ if eq $exp.type "work" }}
+                <h2> <span class="cd-position">{{ $exp.position }}</span> <span class="cd-company">@{{ $exp.company }}</span> </h2>
+                {{ else if eq $exp.type "edu" }}
+                <h2> <span class="cd-position">{{ $exp.degree }}</span> <span class="cd-company">@{{ $exp.school }}</span> </h2>
+                {{ end }}
+                <p class="cd-exp-location"><i class="fa fa-map-marker" aria-hidden="true"></i>{{$exp.location}}</p>
+                <p class="cd-description">{{ $exp.description | markdownify | truncate 300 }}</p>
+                {{ if gt (len $exp.description | markdownify ) 300 }}
+                
+                <!-- More Button Trigger Modal -->
+                <a href="#0" class="btn btn-default" data-toggle="modal" data-target="#modal-exp-{{$index}}">Read more</a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal-exp-{{$index}}" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                    
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>{{ $exp.description | markdownify  }}</p>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+
+                {{ end }}
+                <!-- <span class="cd-date">{{ .startDate }} TO {{ .endDate }}</span> -->
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->        
+        {{ end }}
+
+        <script>
+            // jQuery(document).ready(function($){
+            // 	var $timeline_block = $('.cd-timeline-block');
+            
+            // 	//hide timeline blocks which are outside the viewport
+            // 	$timeline_block.each(function(){
+            // 		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+            // 			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+            // 		}
+            // 	});
+            
+            // 	//on scolling, show/animate timeline blocks when enter the viewport
+            // 	$(window).on('scroll', function(){
+            // 		$timeline_block.each(function(){
+            // 			if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+            // 				$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+            // 			}
+            // 		});
+            // 	});
+            // });
+            
+            jQuery(document).ready(function($){
+                var timelineBlocks = $('.cd-timeline-block'),
+                    offset = 0.8;
+            
+                //hide timeline blocks which are outside the viewport
+                hideBlocks(timelineBlocks, offset);
+            
+                //on scolling, show/animate timeline blocks when enter the viewport
+                $(window).on('scroll', function(){
+                    (!window.requestAnimationFrame) 
+                        ? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
+                        : window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
+                });
+            
+                function hideBlocks(blocks, offset) {
+                    blocks.each(function(){
+                        // console.log("hide block");
+                        ( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+                    });
+                }
+            
+                function showBlocks(blocks, offset) {
+                    blocks.each(function(){
+                        // console.log("show block");
+                        // console.log($(this).find('.cd-timeline-img, .cd-timeline-content'));
+                        // $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+                        ( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+                    });
+                }
+            });
+        </script>
+    </section> <!-- cd-timeline -->
+</div>

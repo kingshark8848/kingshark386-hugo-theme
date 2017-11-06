@@ -1,0 +1,42 @@
+<div class="skillbar-area">
+    <div class="row main-skills">
+        {{ range $index, $element := .Site.Data.profile.Skills }}
+        <div class="col-sm-12 col-md-6">
+            <p>
+                <span>{{$element.name}}</span>
+                {{ range $index, $tag := $element.tags }}
+                <span class="label label-primary">{{$tag}}</span>
+                {{ end }}
+            </p>
+            {{ if $element.comment }}
+            <p class="comment">{{ $element.comment }}</p>
+            {{ end }}
+            <div class="skillbar" data-percent="{{$element.percentage}}">
+                <div class="skillbar-bar"></div>
+            </div> <!-- End Skill Bar -->
+            <br>
+        </div>
+        {{end}}
+    </div>
+    <hr>
+    <div class="row other-skills">
+        <div class="col-sm-12">
+            Other Skills:  
+            {{ range $index, $otherSkill := .Site.Data.profile.OtherSkills }}
+            <span class="label label-default">{{$otherSkill}}</span>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+jQuery(document).ready(function(){
+    jQuery('.skillbar').each(function(){
+    jQuery(this).find('.skillbar-bar').animate({
+        width:jQuery(this).attr('data-percent')
+    },3000);
+    });
+});
+</script>

@@ -1,0 +1,15 @@
+.highlight{
+    margin-bottom: 1rem;
+}
+pre,
+code {
+    overflow: auto;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+pre code {
+    // background: 0;
+    // text-shadow: none;
+    // padding: 0
+    white-space: pre;
+}

@@ -1,0 +1,16 @@
+name = "kingshark386"
+license = "MIT"
+
+## todo
+licenselink = "git/LICENSE.md"
+description = "kingshark386 -- a 386/8bit/pixel style theme for Hugo."
+
+## todo
+homepage = "git"
+tags = ["hugo", "theme", "386", "pixel", "dark"]
+features = ["blog","profile"]
+min_version = 0.1
+
+[author]
+    name = "Xiao Wang"
+    homepage = "https://www.kingsharkworld.com/"
