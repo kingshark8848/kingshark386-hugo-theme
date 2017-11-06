@@ -80,5 +80,5 @@ Xiao Wang(kingshark)
 
 ## License
 
-MIT Link [todo]
+https://github.com/kingshark8848/kingshark386-hugo-theme/blob/master/LICENSE.md
 
