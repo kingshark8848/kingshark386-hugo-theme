@@ -12,9 +12,12 @@ This theme is modified based on [`Vec` theme](https://github.com/IvanChou/hugo-t
 You must have : 
 
 1. 	Hugo installed
-2. Test poject setup with hugo. Instructions on [hugo quickstart guide](https://gohugo.io/overview/quickstart/).
+2. Project setup with hugo. Instructions on [hugo quickstart guide](https://gohugo.io/overview/quickstart/).
 3. Cloned/Copy this repo in the themes folder.  
-[todo] !!!!!!
+```sh
+cd [project]/
+git clone https://github.com/kingshark8848/kingshark386-hugo-theme.git themes/kingshark386
+```
 See the [official docs](http://gohugo.io/themes/installing) for more information.
 
 ## Configuration
