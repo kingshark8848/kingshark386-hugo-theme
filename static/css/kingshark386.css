@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("//fonts.googleapis.com/css?family=Droid+Sans+Mono|Russo+One|Source+Sans+Pro:400,700");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 /**
  * GitHub Gist Theme
@@ -9863,20 +9864,20 @@ pre code {
   }
 }
 
-/* line 61, src/kingshark386.scss */
+/* line 63, src/kingshark386.scss */
 html {
   height: 100%;
   font-size: 100%;
 }
 
 @media screen and (max-width: 700px) {
-  /* line 61, src/kingshark386.scss */
+  /* line 63, src/kingshark386.scss */
   html {
     font-size: 90%;
   }
 }
 
-/* line 75, src/kingshark386.scss */
+/* line 77, src/kingshark386.scss */
 body {
   margin: 0;
   padding: 0;
@@ -9886,18 +9887,18 @@ body {
   position: relative;
 }
 
-/* line 51, src/kingshark386.scss */
+/* line 53, src/kingshark386.scss */
 body a {
   color: #FEFE54;
 }
 
-/* line 54, src/kingshark386.scss */
+/* line 56, src/kingshark386.scss */
 body a:hover {
   color: #FEFE54;
   background: #AA5500;
 }
 
-/* line 87, src/kingshark386.scss */
+/* line 89, src/kingshark386.scss */
 blockquote {
   border-left: 1rem solid #ccc;
   font-size: 1rem;
@@ -9905,7 +9906,7 @@ blockquote {
   color: white;
 }
 
-/* line 97, src/kingshark386.scss */
+/* line 99, src/kingshark386.scss */
 .blink-fast {
   color: white;
   animation-duration: .5s;
@@ -9927,13 +9928,13 @@ blockquote {
   }
 }
 
-/* line 117, src/kingshark386.scss */
+/* line 119, src/kingshark386.scss */
 .container {
   padding-top: 4rem;
   padding-bottom: 6rem;
 }
 
-/* line 127, src/kingshark386.scss */
+/* line 129, src/kingshark386.scss */
 .my-card {
   padding: 1rem;
   box-sizing: border-box;
@@ -9945,13 +9946,13 @@ blockquote {
   z-index: 0;
 }
 
-/* line 145, src/kingshark386.scss */
+/* line 147, src/kingshark386.scss */
 .my-card a:hover {
   color: #FEFE54;
   background: #AA5500;
 }
 
-/* line 151, src/kingshark386.scss */
+/* line 153, src/kingshark386.scss */
 .my-card .left {
   margin-left: -.5rem;
   margin-bottom: 1rem;
@@ -9967,13 +9968,18 @@ blockquote {
 }
 
 /* ============== Header ============== */
-/* line 175, src/kingshark386.scss */
+/* line 173, src/kingshark386.scss */
+header {
+  font-family: "Russo One", "Arial Black", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* line 179, src/kingshark386.scss */
 header .navbar .navbar-brand.with-logo {
   padding-bottom: 0;
   padding-top: 0;
 }
 
-/* line 179, src/kingshark386.scss */
+/* line 183, src/kingshark386.scss */
 header .navbar .navbar-brand.with-logo img {
   display: inline-block;
   height: 100%;
@@ -9981,7 +9987,7 @@ header .navbar .navbar-brand.with-logo img {
 }
 
 /* ============== Footer ============== */
-/* line 191, src/kingshark386.scss */
+/* line 195, src/kingshark386.scss */
 footer {
   position: absolute;
   width: 100%;
@@ -9993,12 +9999,12 @@ footer {
   color: #ccc;
 }
 
-/* line 201, src/kingshark386.scss */
+/* line 205, src/kingshark386.scss */
 footer a {
   color: #ccc;
 }
 
-/* line 205, src/kingshark386.scss */
+/* line 209, src/kingshark386.scss */
 footer .footer-info {
   border-top: .4rem double #f2f2f2;
   padding-top: .25rem;
@@ -10006,20 +10012,20 @@ footer .footer-info {
 
 /* ============== Page Index ============== */
 @media screen and (min-width: 700px) {
-  /* line 214, src/kingshark386.scss */
+  /* line 218, src/kingshark386.scss */
   body.page-index .container {
     padding-right: 10rem;
   }
 }
 
 @media screen and (max-width: 700px) {
-  /* line 214, src/kingshark386.scss */
+  /* line 218, src/kingshark386.scss */
   body.page-index .container {
     padding-top: 8rem;
   }
 }
 
-/* line 224, src/kingshark386.scss */
+/* line 228, src/kingshark386.scss */
 body.page-index section.home-nav ul {
   position: fixed;
   right: 0;
@@ -10030,7 +10036,7 @@ body.page-index section.home-nav ul {
   list-style-type: none;
 }
 
-/* line 233, src/kingshark386.scss */
+/* line 237, src/kingshark386.scss */
 body.page-index section.home-nav ul li {
   background: #bbb;
   margin: 0.5rem;
@@ -10041,42 +10047,42 @@ body.page-index section.home-nav ul li {
   white-space: nowrap;
 }
 
-/* line 246, src/kingshark386.scss */
+/* line 250, src/kingshark386.scss */
 body.page-index section.home-nav ul li:hover {
   margin-left: -.5rem;
 }
 
-/* line 250, src/kingshark386.scss */
+/* line 254, src/kingshark386.scss */
 body.page-index section.home-nav ul li.active {
   margin-left: -.5rem;
   background: #555;
 }
 
-/* line 253, src/kingshark386.scss */
+/* line 257, src/kingshark386.scss */
 body.page-index section.home-nav ul li.active a {
   color: white;
 }
 
-/* line 255, src/kingshark386.scss */
+/* line 259, src/kingshark386.scss */
 body.page-index section.home-nav ul li.active a:hover {
   color: #FEFE54;
   background: #AA5500;
 }
 
-/* line 261, src/kingshark386.scss */
+/* line 265, src/kingshark386.scss */
 body.page-index section.home-nav ul li a {
   color: #000;
   font-size: 1rem;
 }
 
-/* line 265, src/kingshark386.scss */
+/* line 269, src/kingshark386.scss */
 body.page-index section.home-nav ul li a:hover {
   color: #FEFE54;
   background: #AA5500;
 }
 
 @media (max-width: 700px) {
-  /* line 224, src/kingshark386.scss */
+  /* line 228, src/kingshark386.scss */
   body.page-index section.home-nav ul {
     margin-top: 0;
     top: 5rem;
@@ -10084,46 +10090,46 @@ body.page-index section.home-nav ul li a:hover {
     list-style: none;
     z-index: 10;
   }
-  /* line 279, src/kingshark386.scss */
+  /* line 283, src/kingshark386.scss */
   body.page-index section.home-nav ul li {
     background: #00AAAA;
     display: inline;
     border: 1px solid white;
   }
-  /* line 284, src/kingshark386.scss */
+  /* line 288, src/kingshark386.scss */
   body.page-index section.home-nav ul li a {
     color: #FFF;
   }
-  /* line 288, src/kingshark386.scss */
+  /* line 292, src/kingshark386.scss */
   body.page-index section.home-nav ul li, body.page-index section.home-nav ul li:hover, body.page-index section.home-nav ul li:active, body.page-index section.home-nav ul li.active {
     margin-left: 0;
     margin-right: 0;
   }
-  /* line 293, src/kingshark386.scss */
+  /* line 297, src/kingshark386.scss */
   body.page-index section.home-nav ul li.active {
     padding-bottom: 1rem;
   }
 }
 
-/* line 301, src/kingshark386.scss */
+/* line 305, src/kingshark386.scss */
 body.page-index section.site-intro {
   text-align: left;
   font-size: 1.5rem;
 }
 
-/* line 305, src/kingshark386.scss */
+/* line 309, src/kingshark386.scss */
 body.page-index section.site-intro .command-line-symbol {
   color: #FEFE54;
 }
 
 @media screen and (max-width: 700px) {
-  /* line 310, src/kingshark386.scss */
+  /* line 314, src/kingshark386.scss */
   body.page-index section.site-intro .command-line-prefix {
     display: none;
   }
 }
 
-/* line 317, src/kingshark386.scss */
+/* line 321, src/kingshark386.scss */
 body.page-index .user-profile .label {
   font-size: 1rem;
   line-height: 2rem;
@@ -10131,26 +10137,26 @@ body.page-index .user-profile .label {
   background: #000084;
 }
 
-/* line 326, src/kingshark386.scss */
+/* line 330, src/kingshark386.scss */
 body.page-index .user-profile .user-avatar img {
   width: 12rem;
   height: 12rem;
 }
 
-/* line 331, src/kingshark386.scss */
+/* line 335, src/kingshark386.scss */
 body.page-index .user-profile .user-socials a {
   font-size: 1.25rem;
   line-height: 1.5rem;
   text-decoration: none;
 }
 
-/* line 338, src/kingshark386.scss */
+/* line 342, src/kingshark386.scss */
 body.page-index .user-profile .user-socials a:hover {
   color: #777;
   background: none;
 }
 
-/* line 343, src/kingshark386.scss */
+/* line 347, src/kingshark386.scss */
 body.page-index .user-profile .user-motivation {
   font-size: 2rem;
   line-height: 2.125rem;
@@ -10158,12 +10164,12 @@ body.page-index .user-profile .user-motivation {
 }
 
 /* ============== Page List ============== */
-/* line 357, src/kingshark386.scss */
+/* line 361, src/kingshark386.scss */
 body.page-list .posts .posts-archive {
   margin-bottom: 3rem;
 }
 
-/* line 360, src/kingshark386.scss */
+/* line 364, src/kingshark386.scss */
 body.page-list .posts .posts-archive time {
   display: block;
   float: left;
@@ -10174,13 +10180,13 @@ body.page-list .posts .posts-archive time {
   padding: .125rem 0;
 }
 
-/* line 374, src/kingshark386.scss */
+/* line 378, src/kingshark386.scss */
 body.page-list .posts .posts-archive ol {
   margin-left: 7rem;
   padding-left: 1rem;
 }
 
-/* line 378, src/kingshark386.scss */
+/* line 382, src/kingshark386.scss */
 body.page-list .posts .posts-archive ol li {
   font-size: 1.25rem;
   font-weight: bolder;
@@ -10188,20 +10194,20 @@ body.page-list .posts .posts-archive ol li {
   list-style: none;
 }
 
-/* line 384, src/kingshark386.scss */
+/* line 388, src/kingshark386.scss */
 body.page-list .posts .posts-archive ol li .post-date {
   font-size: 0.9rem;
   color: gray;
 }
 
 /* ============== Page Post============== */
-/* line 396, src/kingshark386.scss */
+/* line 400, src/kingshark386.scss */
 body.page-post .post {
   line-height: 1.8;
   width: 100%;
 }
 
-/* line 400, src/kingshark386.scss */
+/* line 404, src/kingshark386.scss */
 body.page-post .post hr {
   height: 0.25rem;
   padding: 0;
@@ -10210,32 +10216,32 @@ body.page-post .post hr {
   border: 0;
 }
 
-/* line 408, src/kingshark386.scss */
+/* line 412, src/kingshark386.scss */
 body.page-post .post em {
   text-emphasis-style: circle;
   text-emphasis-position: under;
 }
 
-/* line 414, src/kingshark386.scss */
+/* line 418, src/kingshark386.scss */
 body.page-post #TableOfContents {
   padding: 1rem;
   background-color: #008000;
   font-size: 1rem;
 }
 
-/* line 423, src/kingshark386.scss */
+/* line 427, src/kingshark386.scss */
 body.page-post #TableOfContents ul {
   list-style: none;
   padding-left: 1rem;
 }
 
-/* line 427, src/kingshark386.scss */
+/* line 431, src/kingshark386.scss */
 body.page-post #TableOfContents ul > li::before {
   content: "-";
   text-indent: -5px;
 }
 
-/* line 433, src/kingshark386.scss */
+/* line 437, src/kingshark386.scss */
 body.page-post #TableOfContents a {
   white-space: nowrap;
   overflow: hidden;
@@ -10243,7 +10249,7 @@ body.page-post #TableOfContents a {
   text-overflow: ellipsis;
 }
 
-/* line 444, src/kingshark386.scss */
+/* line 448, src/kingshark386.scss */
 body.page-post .disqus {
   width: 100%;
   padding: 5rem 0 2rem;
@@ -10251,7 +10257,7 @@ body.page-post .disqus {
 }
 
 /* ============== formspree ============== */
-/* line 455, src/kingshark386.scss */
+/* line 459, src/kingshark386.scss */
 .formspree input, .formspree textarea {
   font-size: 0.8rem;
   border: 1px solid #ddd;
@@ -10265,12 +10271,12 @@ body.page-post .disqus {
   display: block;
 }
 
-/* line 468, src/kingshark386.scss */
+/* line 472, src/kingshark386.scss */
 .formspree input {
   max-width: 25rem;
 }
 
-/* line 472, src/kingshark386.scss */
+/* line 476, src/kingshark386.scss */
 .formspree button {
   float: right;
   color: #999;
@@ -10282,65 +10288,65 @@ body.page-post .disqus {
   padding: .5rem 1.2rem;
 }
 
-/* line 482, src/kingshark386.scss */
+/* line 486, src/kingshark386.scss */
 .formspree button:hover {
   background: #f5f5f5;
 }
 
 /* ============== media ============== */
 @media (max-width: 920px) {
-  /* line 493, src/kingshark386.scss */
+  /* line 497, src/kingshark386.scss */
   .posts {
     margin-left: 0rem;
   }
-  /* line 497, src/kingshark386.scss */
+  /* line 501, src/kingshark386.scss */
   #TableOfContents {
     display: none;
   }
-  /* line 500, src/kingshark386.scss */
+  /* line 504, src/kingshark386.scss */
   #TableOfContents ~ section {
     margin-left: 0rem;
   }
 }
 
 @media (max-width: 700px) {
-  /* line 508, src/kingshark386.scss */
+  /* line 512, src/kingshark386.scss */
   .posts {
     margin-left: 0rem;
   }
-  /* line 512, src/kingshark386.scss */
+  /* line 516, src/kingshark386.scss */
   .posts .posts-archive time {
     float: none;
     text-align: left;
     margin-bottom: 1rem;
   }
-  /* line 518, src/kingshark386.scss */
+  /* line 522, src/kingshark386.scss */
   .posts .posts-archive ol {
     margin-left: 0;
   }
 }
 
 @media (max-width: 480px) {
-  /* line 526, src/kingshark386.scss */
+  /* line 530, src/kingshark386.scss */
   .content {
     margin: 0 auto;
     padding: 4rem 1rem 8rem;
   }
-  /* line 531, src/kingshark386.scss */
+  /* line 535, src/kingshark386.scss */
   .user-profile .user-avatar img {
     width: 8rem;
     height: 8rem;
   }
-  /* line 536, src/kingshark386.scss */
+  /* line 540, src/kingshark386.scss */
   .user-profile .user-motivation {
     font-size: 1.5rem;
     line-height: 2.25rem;
   }
-  /* line 542, src/kingshark386.scss */
+  /* line 546, src/kingshark386.scss */
   .pagination a {
     font-size: .75rem;
   }
-  /* line 546, src/kingshark386.scss */
+  /* line 550, src/kingshark386.scss */
   .pagination .previous:before, .pagination .next:after {
     margin-top: -.35rem;
   }

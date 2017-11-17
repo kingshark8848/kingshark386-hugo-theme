@@ -6,7 +6,9 @@ $screen-medium: 700px;
 $screen-large: 920px;
 
 // font
+@import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono|Russo+One|Source+Sans+Pro:400,700');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+$font1: 'Russo One', 'Arial Black', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 
 $header-menu-height: 3rem;
 $footer-height: 5rem;
@@ -169,6 +171,8 @@ blockquote {
 
 /* ============== Header ============== */
 header {
+  font-family: $font1;
+
   .navbar{
     // height: $header-menu-height;
     .navbar-brand{
