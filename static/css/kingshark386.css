@@ -9381,6 +9381,11 @@ body {
 }
 
 /* line 4, src/highlight.scss */
+.highlight table tr > td:nth-child(2) {
+  width: 100%;
+}
+
+/* line 8, src/highlight.scss */
 pre,
 code {
   overflow: auto;
@@ -9388,7 +9393,7 @@ code {
   margin-bottom: 1rem;
 }
 
-/* line 10, src/highlight.scss */
+/* line 14, src/highlight.scss */
 pre code {
   white-space: pre;
 }
