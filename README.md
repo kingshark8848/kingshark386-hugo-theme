@@ -82,3 +82,6 @@ Xiao Wang(kingshark)
 
 Open sourced under [MIT license](https://github.com/kingshark8848/kingshark386-hugo-theme/blob/master/LICENSE.md)
 
+## Miscellaneous
+
+- Tested at Hugo v0.68.3
