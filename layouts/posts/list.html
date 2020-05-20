@@ -15,17 +15,21 @@
       {{ $paginator := .Paginate (.Data.Pages.GroupByDate "2006-01") }} 
       {{ range $paginator.PageGroups }}
       <div class="posts-archive">
-        {{ $month := (print .Key "-01") }}
-        <time class="posts-archive-month" datetime="{{ $month }}">{{ dateFormat "Jan 2006" $month }}</time>
-        <ol class="posts-list">
-        {{ range .Pages }}
-          <li>
-            <span class="post-date">{{ dateFormat "2006-01-02 " .Date }}</span>
-            <i class="fa fa-file-text" aria-hidden="true"></i>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-          </li>
-        {{ end }}
-        </ol>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            {{ $month := (print .Key "-01") }}
+            <time class="posts-archive-month" datetime="{{ $month }}">{{ dateFormat "Jan 2006" $month }}</time>
+            <ol class="posts-list">
+                  {{ range .Pages }}
+                  <li>
+                    <span class="post-date">{{ dateFormat "2006-01-02 " .Date }}</span>
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                  </li>
+                  {{ end }}
+            </ol>
+          </div>
+        </div>
       </div>
       {{ end }}
     </section>

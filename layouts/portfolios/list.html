@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <title> {{ .Title }} &middot; {{ .Site.Title }} </title>
+  
+  {{ partial "head.html" . }}
+</head>
+
+<body class="page-list">
+  
+  {{ partial "header.html" . }}
+  <div class="container">
+    <section class="posts my-card">
+      {{ range .Pages }}
+      <div class="posts-archive">
+        <ol class="posts-list">
+          <li>
+            <p>
+              <i class="fa fa-star" style="text-shadow: -1px -1px 1px black, 1px 1px 1px white;"></i> 
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </p>
+            {{if .Params.description}}
+            <p><small>{{.Params.description}}</small></p>
+            {{ end }}
+          </li>
+        </ol>
+      </div>
+      {{ end }}
+    </section>
+    {{ partial "pagination.html" . }}
+  </div>
+  
+  {{ partial "footer.html" . }}
+  
+  {{ partial "analytics.html" . }}
+
+</body>
+
+</html>

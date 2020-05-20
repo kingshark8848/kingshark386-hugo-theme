@@ -134,8 +134,8 @@ blockquote {
   // width: 80%;
   // display: inline-block;
   box-shadow: 15px 15px rgba(0, 0, 0, 0.5);
-  background: $grayLight;
-  color: $black;
+  background: $gray-light;
+  // color: $black;
   text-align: left;
   margin-bottom: 5rem;
   z-index: 0;
@@ -387,7 +387,7 @@ body.page-list{
 
           .post-date{
             font-size: 0.9rem;
-            color: gray;
+            // color: gray;
           }
         }
       }
