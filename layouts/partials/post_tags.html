@@ -1,0 +1,15 @@
+<section class="posts my-card">
+    <p><b>TAGS</b></p>
+    {{ with .Site.Taxonomies.post_tags }}
+      {{ range $name, $taxonomy := . }}
+      {{ $term := urlize $name }}
+      <span class="bg-info" >
+        <a href="{{ "/post_tags/" | relLangURL }}{{ $name | urlize }}">
+          {{ $term }} 
+        </a> 
+        <sup>{{$taxonomy.Count}}</sup>
+      </span>
+      &nbsp;
+      {{ end }}
+    {{ end }} 
+  </section>

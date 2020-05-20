@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <title> {{ .Title }} &middot; {{ .Site.Title }} </title>
+  
+  {{ partial "head.html" . }}
+</head>
+
+<body class="page-list">
+  
+  {{ partial "header.html" . }}
+  <div class="container">
+    <section class="posts my-card">
+
+        <h1>Tags</h1>
+
+        {{ range .Data.Pages }}
+        <a class="btn btn-info btn-sm" href="{{ .Permalink }}">{{ .Title }} 
+            {{ $pageCount := len .Pages }}
+            <span class="badge">{{$pageCount}}</span></a> 
+        {{ end }}
+
+    </section>
+  </div>
+  
+  {{ partial "footer.html" . }}
+  
+  {{ partial "analytics.html" . }}
+
+</body>
+
+</html>
