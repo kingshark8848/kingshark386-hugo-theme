@@ -36,7 +36,10 @@ See Hugo.io's official documents for more info on how to create contents.
 
 ### Customize SCSS
 
-If you want to customize the style, you can go to src to do some modification (such as some scss files), but please compile them to `static/` (you can use gulp, I have a simple gulp file here).  
+If you want to customize the style, you can go to src to do some modification (such as some scss files), but please compile them to `static/`
+
+> you can use gulp, I have a simple gulp file here.
+> `gulp` or `gulp watch`  
 
 ### Enable TOC to your post
 

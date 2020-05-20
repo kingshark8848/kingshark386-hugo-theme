@@ -54,4 +54,4 @@ gulp.task("watch", ["scss","minify-js"], function () {
 })
 
 // Set watch as default task
-gulp.task("default", ["watch"])
+gulp.task("default", ["scss","minify-js"])
